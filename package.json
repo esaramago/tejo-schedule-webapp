@@ -1,0 +1,23 @@
+{
+    "name": "tejo-schedule",
+    "author": "esaramago",
+    "description": "Tejo cruises schedule",
+    "version": "0.1.0",
+    "devDependencies": {
+        "gulp": "*",
+
+        "gulp-nunjucks-render": "*",
+        "gulp-data": "*",
+
+        "gulp-sass": "*",
+        "gulp-combine-media-queries": "*",
+        "gulp-cssnano": "*",
+        "gulp-notify": "*",
+        "gulp-plumber": "*",
+
+        "gulp-watch": "*"
+    },
+    "repository": {
+        "private": true
+    }
+}
