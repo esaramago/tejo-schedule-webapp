@@ -26,7 +26,7 @@ function comming_schedule(schedule) {
         var hours = $this.data('hour');
         var minutes = $this.data('minute');
 
-        // get decmal time, for sums
+        // get decimal time, for sums
         var current_time = current_hours+'.'+current_minutes ;
 
         // add 24hours, if after midnight, to make sums easier

@@ -14,52 +14,53 @@ $('.nav-tab').on('click', function() {
 
 
 // Page transitions
-$('#outbound-trip').on('tap swipeleft', function() {
+$('.js-schedule-box').on('tap swipeleft', function() {
 
-    var schedule = 'outbound';
-    var $schedule = $('#'+ schedule +'-schedule');
-    $schedule.addClass('active');
-
-     // Select current day tab
-    today_tab();
-
-    // update next outbound schedule
-    comming_schedule(schedule);
-
-    // scroll to current schedule
-    $('#'+ schedule +'-schedule').find('.schedule-wrapper').delay(400).animate({
-        scrollTop: $('.schedule__next').offset().top - 120 // - 152
-    }, 1000);
-});
-$('#return-trip').on('tap swipeleft', function() {
-
-    var schedule = 'return';
-    var $schedule = $('#'+ schedule +'-schedule');
+    var way = $(this).data('way');
+    var $schedule = $('#'+ way +'-schedule');
     $schedule.addClass('active');
 
     // Select current day tab
     today_tab();
 
-    // update next return schedule
-    comming_schedule(schedule);
+    // update next outbound schedule
+    comming_schedule(way);
 
-
-    // scroll to current schedule
-    $('#'+ schedule +'-schedule').find('.schedule-wrapper').delay(400).animate({
-        scrollTop: $('.schedule__next').offset().top - 120 // - 152
+    // scroll to next schedule time
+    $schedule.find('.schedule-wrapper').delay(400).animate({
+        scrollTop: $schedule.find('.schedule__next').position().top - 24
     }, 1000);
-});
 
-var schedules = $('#outbound-schedule, #return-schedule');
-$('.back-to-home').on('tap', function() {
-    schedules.removeClass('active');
 
+    // Browser back button - go to homepage (NOT WORKING ON PHONE)
+    if (window.history && window.history.pushState) {
+
+        window.history.pushState('forward', null, './#forward');
+
+        $(window).on('popstate', function() {
+            if( $('.schedule-page').hasClass('active') ) {
+                backToHomepage();
+            }
+        });
+    }
+})
+
+// Go back to homepage
+$('.js-back').on('tap', function() {
+    backToHomepage();
 });
 $('.schedule-wrapper').on('swiperight', function() {
-    schedules.removeClass('active');
-
+    backToHomepage();
 });
 
+
+
+
+
+// Back to homepage function
+function backToHomepage() {
+    $('.schedule-page').removeClass('active');
+}
 
 // Select current day tab
 function today_tab() {
@@ -71,4 +72,15 @@ function today_tab() {
     else if (today_is == 'sunday') {
         $('.nav-tab:nth-child(3)').click();
     }
+}
+
+
+
+
+
+
+// ServiceWorker is a progressive technology. Ignore unsupported browsers
+// Credits: https://css-tricks.com/serviceworker-for-offline/
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
 }

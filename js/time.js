@@ -21,7 +21,7 @@ function current_time() {
     current_hours = ((current_hours < 5) ? current_hours = (parseInt(current_hours)+24) : current_hours)
 
     // fake date (for test purposes)
-    //var weekday = 0
+    //var weekday = 2;
     //current_hours   = 22;
     //current_minutes = 25;
     //current_seconds = date.getSeconds();
@@ -30,19 +30,21 @@ function current_time() {
     // 1.1. Fix current weekday =====================================
 
     // check if time is after midnight
-    if (current_hours >= 0 && current_hours < 4) {
+    if (current_hours >= 0 && current_hours >= 24) {
 
+            console.log('hoje éaaaaaaa '+ (current_hours) + ' sddscs')
         // make today yesterday
         weekday = weekday - 1;
 
         // if sunday gets a negative value, make it saturday
         if (weekday == -1) {
             weekday = 6;
+
         }
     }
 
     // NOW, I HAVE THE CORRECT WEEKDAY!!!!
-    console.log(weekday)
+    console.log('hoje é '+weekday)
 
     if ( weekday >= 1 && weekday <= 5 ) {
         today_is = 'weekday';

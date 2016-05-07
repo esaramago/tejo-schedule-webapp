@@ -54,34 +54,38 @@
     position: relative;
     z-index: 1;
     box-sizing: border-box;
-    height: 50px;
-    padding: 6px 15px;
+    @include flexbox();
+    height: 55px;
+    padding-left: 24px;
+    padding-right: 12px;
     background-color: $base-color;
     color: #FFF;
+    fill: #FFF;
 }
 .page-heading {
-    font-size: 1.2rem;
-    line-height: 1.9rem;
+    @include flex(1);
+    @include align-self(center);
+    font-size: 2rem;
+    font-weight: 500;
+    > .smaller {
+        font-size: 1.2rem;
+    }
     > .bigger {
         font-size: 1.6rem;
         display: block;
         text-transform: uppercase;
     }
 }
-.back-to-home {
-    float: left;
-    height: 45px;
-    padding: 0 16px;
-    margin-left: -10px;
-}
-.arrow-back {
-    display: inline-block;
-    padding: 6px;
-    border-top: 3px solid #FFF;
-    border-left: 3px solid #FFF;
-    margin-top: 14px;
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
+.page-header__action {
+    @include align-self(center);
+    box-sizing: border-box;
+    padding: 12px;
+    margin-right: 14px;
+    margin-left: -14px;
+    &.is-aligned-right {
+        margin-right: -14px;
+        margin-left: 14px;
+    }
 }
 
 
@@ -95,7 +99,7 @@
     width: 100%;
     max-width: 500px;
     height: 100%;
-    padding: 59px 8px 8px;
+    padding: 68px 8px 8px;
     margin: auto;
 }
 
@@ -200,25 +204,23 @@
     right: 0;
     display: table;
     width: 100%;
-    border-bottom: 1px solid $base-color-light;
-    margin-bottom: 20px;
-    font-size: 1.4rem;
+    background-color: $base-color;
+    color: rgba(255,255,255,.7);
+    font-size: 1.3rem;
+    font-weight: 500;
     text-align: center;
+    text-transform: uppercase;
     .active {
-        border-bottom-color: $base-color;
-        font-weight: 500;
+        border-bottom-color: #FF5722;
+        color: #FFF;
     }
 }
 .nav-tab {
     display: table-cell;
     vertical-align: middle;
-    width: 33%;
     padding: 6px 0;
-    border-right: 1px solid $base-color-light;
-    border-bottom: 5px solid transparent;
-    &:last-child {
-        border-right: none;
-    }
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
 }
 
 .schedule-box {
@@ -231,7 +233,7 @@
     overflow: auto;
     box-sizing: border-box;
     height: 100%;
-    margin: 55px -12px 0 -12px;
+    margin: 45px -12px 0 -12px;
     color: $grey;
     font-size: 1.7rem;
     text-align: center;

@@ -9,32 +9,7 @@
 
     <title>Horários Tejo</title>
 
-    <style>
-        /* latin */
-        @font-face {
-          font-family: 'Roboto';
-          font-style: normal;
-          font-weight: 300;
-          src: local('Roboto Light'), local('Roboto-Light'), url(http://fonts.gstatic.com/s/roboto/v15/Hgo13k-tfSpn0qi1SFdUfVtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
-          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-        }
-        /* latin */
-        @font-face {
-          font-family: 'Roboto';
-          font-style: normal;
-          font-weight: 400;
-          src: local('Roboto'), local('Roboto-Regular'), url(http://fonts.gstatic.com/s/roboto/v15/CWB0XYA8bzo0kSThX0UTuA.woff2) format('woff2');
-          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-        }
-        /* latin */
-        @font-face {
-          font-family: 'Roboto';
-          font-style: normal;
-          font-weight: 500;
-          src: local('Roboto Medium'), local('Roboto-Medium'), url(http://fonts.gstatic.com/s/roboto/v15/RxZJdnzeo3R5zSexge8UUVtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
-          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-        }
-    </style>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/main.css">
 
     <!-- icons -->
@@ -76,13 +51,10 @@
     <div class="wrapper">
         <div class="page home-page active">
             <header class="page-header">
-                <h1 class="page-heading">
-                    Horários
-                    <span class="bigger">Tejo</span>
-                </h1>
+                <h1 class="page-heading">Horários Tejo</h1>
             </header>
             <section class="page-content">
-                <article class="box" tabindex="0" id="outbound-trip" data-destination="barreiro">
+                <a role="button" tabindex="0" class="box js-schedule-box" id="outbound-trip" data-way="outbound" data-destination="barreiro">
                     <div class="route">
                         <span class="label">De</span>
                         <span class="route-departure">Barreiro</span>
@@ -102,14 +74,13 @@
                             <span class="label">A próxima partida é às </span>
                             <span id="next-outbound-departure">- -:- -</span>
                         </div>
-                        <div class="later-boat">
+                        <!--<div class="later-boat">
                             <span class="label">A seguinte é às <span id="later-outbound-departure">- -:- -</span></span>
-
-                        </div>
+                        </div>-->
                     </div>
-                </article>
+                </a>
 
-                <article class="box" tabindex="0" id="return-trip" data-destination="terreiro">
+                <a role="button" tabindex="0" class="box js-schedule-box" id="return-trip" data-way="return" data-destination="terreiro">
                     <div class="route">
                         <span class="label">De</span>
                         <span class="route-departure">Terreiro do Paço</span>
@@ -129,24 +100,31 @@
                             <span class="label">A próxima partida é às </span>
                             <span id="next-return-departure"></span>
                         </div>
-                        <div class="later-boat">
+                        <!--<div class="later-boat">
                             <span class="label">A seguinte é às <span id="later-return-departure"></span></span>
-                        </div>
+                        </div>-->
                     </div>
-                </article>
+                </a>
             </section>
         </div>
 
         <!-- OUTBOUND -->
         <div class="page schedule-page" id="outbound-schedule">
             <header class="page-header">
-                <a role="button" class="back-to-home">
-                    <span class="arrow-back"></span>
+                <a role="button" class="js-back page-header__action">
+                    <svg class="icon">
+                        <use xlink:href="sprite.svg#arrow-back"/>
+                    </svg>
                 </a>
                 <h1 class="page-heading">
-                    <span>Barreiro</span>
+                    <span class="smaller">Barreiro</span>
                     <span class="bigger">Terreiro do Paço</span>
                 </h1>
+                <!--<a role="button" class="js-back page-header__action is-aligned-right">
+                    <svg class="icon">
+                        <use xlink:href="sprite.svg#more-vertical"/>
+                    </svg>
+                </a>-->
             </header>
             <section class="page-content">
                 <article class="box schedule-box">
@@ -720,11 +698,13 @@
         <!-- RETURN -->
         <div class="page schedule-page" id="return-schedule">
             <header class="page-header">
-                <a role="button" class="back-to-home">
-                    <span class="arrow-back"></span>
+                <a role="button" class="js-back page-header__action">
+                    <svg class="icon">
+                        <use xlink:href="sprite.svg#arrow-back"/>
+                    </svg>
                 </a>
                 <h1 class="page-heading">
-                    <span>Terreiro do Paço</span>
+                    <span class="smaller">Terreiro do Paço</span>
                     <span class="bigger">Barreiro</span>
                 </h1>
             </header>
@@ -1299,5 +1279,6 @@
     <script src="js/time.js"></script>
     <script src="js/interface-controller.js"></script>
     <script src="js/schedule.js"></script>
+    <script src="js/service-workers.js"></script>
 </body>
 </html>
