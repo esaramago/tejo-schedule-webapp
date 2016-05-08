@@ -1,8 +1,3 @@
-.label {
-    color: $grey;
-    font-size: 1.4rem;
-    font-weight: 300;
-}
 .loading {
     position: absolute;
     top: 0;
@@ -41,6 +36,8 @@
 }
 .page {
     left: 0;
+    @include flexbox();
+    @include flex-direction(column);
     background-color: $light-grey;
     @include transform(translateX(100%));
     @include transition(transform .4s);
@@ -49,191 +46,57 @@
     }
 }
 
-// HEADER
-.page-header {
-    position: relative;
-    z-index: 1;
-    box-sizing: border-box;
-    @include flexbox();
-    height: 55px;
-    padding-left: 24px;
-    padding-right: 12px;
-    background-color: $base-color;
-    color: #FFF;
-    fill: #FFF;
-}
-.page-heading {
-    @include flex(1);
-    @include align-self(center);
-    font-size: 2rem;
-    font-weight: 500;
-    > .smaller {
-        font-size: 1.2rem;
-    }
-    > .bigger {
-        font-size: 1.6rem;
-        display: block;
-        text-transform: uppercase;
-    }
-}
-.page-header__action {
-    @include align-self(center);
-    box-sizing: border-box;
-    padding: 12px;
-    margin-right: 14px;
-    margin-left: -14px;
-    &.is-aligned-right {
-        margin-right: -14px;
-        margin-left: 14px;
-    }
-}
+
 
 
 // CONTENT
-.page-content {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
+.main-content {
+    position: relative;
+    @include flexbox();
+    @include flex-direction(column);
+    @include flex(1);
+    overflow: auto;
     box-sizing: border-box;
     width: 100%;
     max-width: 500px;
-    height: 100%;
-    padding: 68px 8px 8px;
+    padding: 16px 8px 8px;
     margin: auto;
 }
-
-
-.home-page .page-content {
-    overflow: auto;
-    padding-bottom: 0;
-}
-
-.box {
-    position: relative;
-    display: block;
-    box-sizing: border-box;
-    padding: 15px;
-    margin-bottom: 8px;
-    background-color: #FFF;
-    box-shadow: 0 1px 1px #BBB;
-}
-
-.route {
-    margin-bottom: 4px;
-    font-size: 1.4rem;
-    .label {
-        display: inline-block;
-        width: 15%;
-        padding-right: 15px;
-        text-transform: uppercase;
-        text-align: right;
-    }
-}
-.route-arrival {
-    font-size: 2.2rem;
-    text-transform: uppercase;
-}
-
-
-.content-box {
-    max-width: 250px;
-    margin: auto;
-}
-
-.next-boat,
-.later-boat {
-    text-align: right;
-}
-.later-boat {
-    color: $grey;
-}
-
-.countdown {
-    @include flexbox();
-    @include justify-content(space-between);
-    margin: 20px 0 5px;
-    font-size: 4.6rem;
-    text-align: center;
-}
-.countdown-item {
-    position: relative;
-    width: 66px;
-    height: 66px;
-    border-radius: 3px;
-    background-color: $base-color;
-    color: #FFF;
-    line-height: 66px;
-    &:before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        display: block;
-        width: 100%;
-        height: 2px;
-        margin-top: 2px;
-        background-color: $base-color-light;
-    }
-}
-.countdown-value {
-    position: relative;
-    display: block;
-    height: 100%;
-}
-.countdown-separator {
-    color: $base-color;
-}
-
-
-
-
-
-
-/* SCHEDULE ========================================= */
-
-
-.schedule-page {
-    @include flexbox();
-    @include flex-direction(column);
-    height: 100%;
-}
-.nav {
+.content-wrapper {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: table;
-    width: 100%;
-    background-color: $base-color;
-    color: rgba(255,255,255,.7);
-    font-size: 1.3rem;
-    font-weight: 500;
-    text-align: center;
-    text-transform: uppercase;
-    .active {
-        border-bottom-color: #FF5722;
-        color: #FFF;
-    }
-}
-.nav-tab {
-    display: table-cell;
-    vertical-align: middle;
-    padding: 6px 0;
-    border-bottom: 2px solid transparent;
-    cursor: pointer;
+    top: 10px;
+    right: 8px;
+    bottom: 0;
+    left: 8px;
+    overflow: auto;
 }
 
-.schedule-box {
+
+
+
+
+// HOMEPAGE =========================================
+
+.next-boat {
+    margin-top: 20px;
+}
+.next-boat__label {
+    color: $grey;
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+
+
+
+
+
+// SCHEDULE =========================================
+
+.schedule-card {
     @include flexbox();
     @include flex-direction(column);
-    height: 100%;
-}
-.schedule-wrapper {
-    position: relative;
-    overflow: auto;
-    box-sizing: border-box;
-    height: 100%;
-    margin: 45px -12px 0 -12px;
+    @include flex(1);
     color: $grey;
     font-size: 1.7rem;
     text-align: center;

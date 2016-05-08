@@ -32,7 +32,6 @@ function current_time() {
     // check if time is after midnight
     if (current_hours >= 0 && current_hours >= 24) {
 
-            console.log('hoje éaaaaaaa '+ (current_hours) + ' sddscs')
         // make today yesterday
         weekday = weekday - 1;
 
@@ -44,7 +43,6 @@ function current_time() {
     }
 
     // NOW, I HAVE THE CORRECT WEEKDAY!!!!
-    console.log('hoje é '+weekday)
 
     if ( weekday >= 1 && weekday <= 5 ) {
         today_is = 'weekday';

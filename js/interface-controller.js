@@ -1,20 +1,20 @@
 // Schedule tabs
-$('.nav-tab').on('click', function() {
+$('.tab').on('click', function() {
     var $this = $(this);
     var schedule = $this.data('schedule');
 
-    // nav tabs
-    $this.siblings('.nav-tab').removeClass('active');
+    // tabs
+    $this.siblings('.tab').removeClass('active');
     $this.addClass('active');
 
     // tabs
-    $this.closest('.page-content').find('.schedule').removeClass('active');
+    $this.closest('.page').find('.schedule').removeClass('active');
     $('#'+ schedule +'-schedule').addClass('active');
 });
 
 
 // Page transitions
-$('.js-schedule-box').on('tap swipeleft', function() {
+$('.js-schedule-card').on('tap swipeleft', function() {
 
     var way = $(this).data('way');
     var $schedule = $('#'+ way +'-schedule');
@@ -67,10 +67,10 @@ function today_tab() {
 
     current_time();
     if (today_is == 'saturday') {
-        $('.nav-tab:nth-child(2)').click();
+        $('.tab:nth-child(2)').click();
     }
     else if (today_is == 'sunday') {
-        $('.nav-tab:nth-child(3)').click();
+        $('.tab:nth-child(3)').click();
     }
 }
 

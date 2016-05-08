@@ -1,4 +1,99 @@
+// ICON
+
 .icon {
     width: 16px;
     height: 16px;
+}
+
+
+
+
+// APP BAR - http://www.material-ui.com/#/components/app-bar
+
+.app-bar {
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    @include flexbox();
+    height: 55px;
+    padding-left: 24px;
+    padding-right: 12px;
+    background-color: $base-color;
+    color: #FFF;
+    fill: #FFF;
+}
+.app-bar__heading {
+    @include flex(1);
+    @include align-self(center);
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 2rem;
+}
+.app-bar__action {
+    @include align-self(center);
+    box-sizing: border-box;
+    padding: 12px;
+    margin-right: 14px;
+    margin-left: -14px;
+    &.is-aligned-right {
+        margin-right: -14px;
+        margin-left: 14px;
+    }
+}
+
+
+
+// CARD - http://www.material-ui.com/#/components/card
+
+.card {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    padding: 14px 16px 16px;
+    margin-bottom: 16px;
+    border-radius: 2px;
+    background-color: #FFF;
+    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+}
+.card__heading,
+.card__sub-heading {
+    display: block;
+}
+.card__heading {
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 2.4rem;
+}
+.card__sub-heading {
+    padding-bottom: 1px;
+    color: rgba(0, 0, 0, 0.55);
+    font-size: 1.4rem;
+}
+
+
+// TABS - http://www.material-ui.com/#/components/tabs
+
+.tabs {
+    @include flexbox();
+    box-sizing: border-box;
+    height: 48px;
+    background-color: $base-color;
+    color: rgba(255,255,255,.7);
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    .active {
+        border-bottom-color: #FF5722;
+        color: #FFF;
+    }
+}
+.tab {
+    @include flexbox();
+    @include flex(1);
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+}
+.tab-label {
+    @include flex(1);
+    @include align-self(center);
 }
